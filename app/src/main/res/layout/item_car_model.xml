@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.sunc.car.lovecar.yun.ApiCarModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="@dimen/space_mini">
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/space_normal"
+            android:layout_marginRight="@dimen/space_normal"
+            app:load_image="@{item.logo}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/h16"
+            android:textColor="@color/textColorPrimary"
+            android:text="@{item.name}"/>
+    </LinearLayout>
+</layout>

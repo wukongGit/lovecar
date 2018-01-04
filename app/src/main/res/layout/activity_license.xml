@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/window_background">
+        <include
+            layout="@layout/layout_title_bar"/>
+
+        <EditText
+            android:id="@+id/et_licenseid"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginLeft="@dimen/space_large"
+            android:layout_marginRight="@dimen/space_large"
+            android:padding="@dimen/space_mini"
+            android:background="@drawable/bg_frame_gray"
+            android:hint="@string/license_id_required"/>
+        <EditText
+            android:id="@+id/et_licensenumber"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:layout_margin="@dimen/space_large"
+            android:padding="@dimen/space_mini"
+            android:background="@drawable/bg_frame_gray"
+            android:hint="@string/license_num_required"/>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="@dimen/space_large"
+            android:layout_marginRight="@dimen/space_large"
+            android:background="@drawable/btn_blue_selector"
+            android:gravity="center"
+            android:text="@string/service_query"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h18" />
+
+        <LinearLayout
+            android:id="@+id/ll_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/license_score_info"
+                android:textColor="#e46d66"
+                android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#e46d66"
+                android:textSize="60sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

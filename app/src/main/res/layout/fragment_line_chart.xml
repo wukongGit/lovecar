@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/line_chart"
+        android:layout_margin="@dimen/space_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </lecho.lib.hellocharts.view.LineChartView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/space_large">
+        <ImageView
+            android:id="@+id/iv_collapse"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/ic_collapse"
+            android:tint="@color/main_color_normal"
+            android:layout_marginRight="@dimen/space_large"/>
+        <TextView
+            android:id="@+id/tv_oil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_large"
+            android:text="@string/line_oil"/>
+        <TextView
+            android:id="@+id/tv_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/line_fee"/>
+    </LinearLayout>
+</RelativeLayout>

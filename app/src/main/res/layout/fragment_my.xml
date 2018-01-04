@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout >
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/footbar_size">
+    <RelativeLayout
+        android:id="@+id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+
+        android:background="@color/main_color_normal">
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/bg_male"/>
+        <TextView
+            android:id="@+id/tv_current_car"
+            android:layout_below="@+id/iv_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h18"
+            android:layout_margin="@dimen/space_normal"/>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rc_services"
+        android:layout_below="@id/ll_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+    </android.support.v7.widget.RecyclerView>
+    <LinearLayout
+        android:id="@+id/ll_ad"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/footbar_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/window_background" />
+</RelativeLayout>
+</layout>

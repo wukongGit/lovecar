@@ -1,0 +1,157 @@
+<resources>
+    <string name="app_name">Car Life</string>
+    <string name="back_press_tips">Press again to exit</string>
+
+    <string name="near">Nearby</string>
+    <string name="consumption">Oil</string>
+    <string name="fee">Fee</string>
+    <string name="bill">Bill</string>
+    <string name="service">Service</string>
+
+    <string name="search_hint">Search nearby</string>
+    <string name="oil_hint">Gas station</string>
+    <string name="s4_hint">4S shop</string>
+    <string name="parking_hint">Parking lot</string>
+    <string name="search">Search</string>
+    <string name="distance">Distance</string>
+    <string name="current_point">Current location</string>
+
+    <string name="bill_total">Balance</string>
+    <string name="bill_total_in">Income</string>
+    <string name="bill_total_out">Outcome</string>
+    <string name="bill_in">Income</string>
+    <string name="bill_out">Outcome</string>
+    <string name="ok">OK</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="oil_price">Price(RMB)：</string>
+    <string name="oil_mount">Amount(Liter)：</string>
+    <string name="add_note">Note</string>
+    <string name="start_bill">Start my first account</string>
+
+    <string name="out_detail_oil">Oil Charge</string>
+    <string name="out_detail_charge">Charge</string>
+    <string name="out_detail_road">Road toll</string>
+    <string name="out_detail_parking">Parking</string>
+    <string name="out_detail_wash">Car wash</string>
+    <string name="out_detail_spa">Take care</string>
+    <string name="out_detail_format">Brush</string>
+    <string name="out_detail_battery">Battery</string>
+    <string name="out_detail_electronic">Electronic</string>
+    <string name="out_detail_fix">Fix</string>
+    <string name="out_detail_hook">Trailer</string>
+    <string name="out_detail_key">Unlock</string>
+    <string name="out_detail_fine">Fine</string>
+    <string name="out_detail_normal">Normal</string>
+    <string name="out_detail_add">Add</string>
+    <string name="in_detail_taxi">Taxi</string>
+    <string name="in_detail_goods">Pull goods</string>
+    <string name="in_detail_gift">Gift</string>
+    <string name="edit_icon">Edit icon</string>
+    <string name="way_required">Please input the label</string>
+
+    <string name="oil_statics">Oil consumption statistics</string>
+    <string name="oil_total_weight">Amount：</string>
+    <string name="oil_total_fee">Cost：</string>
+    <string name="oil_average_weight">Average(Liter/Month)</string>
+    <string name="oil_average_fee">Average(RMB/Month)</string>
+    <string name="oil_add_record">Add record</string>
+    <string name="line_fee">Cost(RMB)</string>
+    <string name="line_oil">Oil(Liter)</string>
+
+    <string name="current_car">Current car</string>
+    <string name="login_rightly">Login</string>
+
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="register_has_no_account">Has no account？</string>
+    <string name="register_rightly">Register now ></string>
+    <string name="forget_password">Forget the password</string>
+    <string name="reset_password">Reset the password</string>
+    <string name="register_request_code">Get the verifying code</string>
+    <string name="read_and_agree">Already read and agree</string>
+    <string name="please_read_and_agree">Please read and agree the services</string>
+    <string name="services">Services</string>
+    <string name="register_success">Register success</string>
+    <string name="reset_password_success">Reset the password success</string>
+    <string name="the_mobile_has_not_registered">The mobile has not registered</string>
+    <string name="prompt_mobile">Mobile</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_new_password">New password</string>
+    <string name="prompt_password_again">Input the password again</string>
+    <string name="prompt_sms">Please input the verifying code</string>
+    <string name="error_mobile_required">Mobile is required</string>
+    <string name="error_invalid_mobile">This mobile is invalid</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_invalid_password_not_equal">This password is not equal</string>
+    <string name="error_incorrect_password">Please input the right password</string>
+    <string name="my_love_car">My love car</string>
+    <string name="car_manage">Vehicle management</string>
+    <string name="bill_statistic">Bill Statistic</string>
+    <string name="delete_alert">Delete </string>
+
+    <string name="please_input_fee">Please enter the amount of consumption</string>
+    <string name="please_input_price">Please enter the oil price</string>
+    <string name="network_error">please check the network</string>
+    <string name="tip_empty">No relevant data</string>
+
+    <string name="goto_setting">Go setting</string>
+    <string name="i_known">I known</string>
+    <string name="permission_open">Open permissions</string>
+    <string name="permission_open_storage_description">If you decline the permissions, some of the functions will not work. please open the permissions in [Settings]>[Permissions].</string>
+    <string name="permission_open_phone_state_description">If you decline the permissions, some of the functions will not work. please open the permissions in [Settings]>[Permissions].</string>
+
+    <string name="personal_page">Personal Center</string>
+    <string name="login_account">Account </string>
+    <string name="nickname">Nickname </string>
+    <string name="mobile">Mobile </string>
+    <string name="setting_sex">Sex</string>
+    <string name="setting_age">Age</string>
+    <string name="setting_work">Occupation</string>
+    <string name="setting_default">Not set</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="feed_back">Feedback </string>
+    <string name="login_out">Logout</string>
+    <string name="save_failed">Edit_fail</string>
+    <string name="contacts_method">Contacts method </string>
+    <string name="contacts_method_hint">Optional, for us to contact you </string>
+    <string name="submit">Submit </string>
+    <string name="submit_success">Success</string>
+    <string name="submit_fail">Fail</string>
+    <string name="submit_feedback_required">Please input you feedback</string>
+
+    <string name="service_car_query">Vehicle info</string>
+    <string name="service_car_limit">Tail number limit</string>
+    <string name="service_car_vin">Vehicle VIN query</string>
+    <string name="service_car_fine">Violation inquiry</string>
+    <string name="service_car_score">License query</string>
+    <string name="service_oil_price">Oil price query</string>
+    <string name="service_query">Query</string>
+
+    <string name="error_vin_required">Please input VIN number</string>
+    <string name="error_vin_error">Please input the right VIN number</string>
+    <string name="select_city">Choose the city</string>
+    <string name="select_date">Choose the Date</string>
+    <string name="car_num_required">Please enter the license plate number</string>
+    <string name="initializing">It\'s initializing. Please wait a moment.</string>
+    <string name="license_id_required">Please enter the file number</string>
+    <string name="license_num_required">Please enter the driver license number</string>
+    <string name="license_score_info">Driving license deduction</string>
+    <string name="violation_total_num">Total number of violation</string>
+    <string name="violation_untreated_num_tag">Untreated violation</string>
+    <string name="violation_untreated_fine">Unhandled general fines</string>
+    <string name="violation_untreated_score">Unhandled total deduction of violation</string>
+    <string name="violation_untreated_num">untreated</string>
+
+    <string name="aliyun_market">Ali Yun Market</string>
+    <string name="aliyun_market_description">Vehicle and traffic information inquiry</string>
+    <string name="pay_error_need_login">You need login first!</string>
+    <string name="pay_error_money_not_enough">Sorry, your balance is not enough!</string>
+    <string name="pay_title">Choose the way to recharge</string>
+    <string name="pay_message">1、The service is a third party paid service;\n
+2、Before using the paid business, please recharge first;\n
+3、The minimum amount of support is 1 yuan.</string>
+</resources>

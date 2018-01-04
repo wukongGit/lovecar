@@ -1,0 +1,157 @@
+<resources>
+    <string name="app_name">汽车生活</string>
+    <string name="back_press_tips">再按一次退出程序</string>
+
+    <string name="near">附近</string>
+    <string name="consumption">油耗</string>
+    <string name="fee">油费</string>
+    <string name="bill">账单</string>
+    <string name="service">服务</string>
+
+    <string name="search_hint">搜索附近加油站、停车场、4S店</string>
+    <string name="oil_hint">加油站</string>
+    <string name="s4_hint">4S店</string>
+    <string name="parking_hint">停车场</string>
+    <string name="search">搜索</string>
+    <string name="distance">距离</string>
+    <string name="current_point">当前位置</string>
+
+    <string name="bill_total">结余</string>
+    <string name="bill_total_in">总收入</string>
+    <string name="bill_total_out">总支出</string>
+    <string name="bill_in">收入</string>
+    <string name="bill_out">支出</string>
+    <string name="ok">确定</string>
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="oil_price">油价(元/升)：</string>
+    <string name="oil_mount">油量(升)：</string>
+    <string name="add_note">添加备注</string>
+    <string name="start_bill">开始我的第一笔记账</string>
+
+    <string name="out_detail_oil">加油</string>
+    <string name="out_detail_charge">充电</string>
+    <string name="out_detail_road">过路费</string>
+    <string name="out_detail_parking">停车</string>
+    <string name="out_detail_wash">洗车</string>
+    <string name="out_detail_spa">保养</string>
+    <string name="out_detail_format">刷漆</string>
+    <string name="out_detail_battery">换电池</string>
+    <string name="out_detail_electronic">电子产品</string>
+    <string name="out_detail_fix">修理</string>
+    <string name="out_detail_hook">拖车</string>
+    <string name="out_detail_key">开锁</string>
+    <string name="out_detail_fine">罚款</string>
+    <string name="out_detail_normal">一般</string>
+    <string name="out_detail_add">添加</string>
+    <string name="in_detail_taxi">载人</string>
+    <string name="in_detail_goods">拉货</string>
+    <string name="in_detail_gift">礼品</string>
+    <string name="edit_icon">编辑图标</string>
+    <string name="way_required">请输入用途</string>
+
+    <string name="oil_statics">油耗统计</string>
+    <string name="oil_total_weight">加油总量(升)：</string>
+    <string name="oil_total_fee">加油总金额(元)：</string>
+    <string name="oil_average_weight">平均油耗(升/月)</string>
+    <string name="oil_average_fee">平均油费(元/月)</string>
+    <string name="oil_add_record">添加记录</string>
+    <string name="line_fee">油费(元)</string>
+    <string name="line_oil">油耗(升)</string>
+
+    <string name="current_car">当前车辆</string>
+    <string name="login_rightly">立即登录</string>
+
+    <string name="login">登录</string>
+    <string name="logout">退出</string>
+    <string name="register">注册</string>
+    <string name="register_has_no_account">还没有账号？</string>
+    <string name="register_rightly">立即注册 ></string>
+    <string name="forget_password">忘记密码</string>
+    <string name="reset_password">重置密码</string>
+    <string name="register_request_code">获取验证码</string>
+    <string name="read_and_agree">已经阅读并同意</string>
+    <string name="please_read_and_agree">请阅读并同意服务条款</string>
+    <string name="services">服务条款</string>
+    <string name="register_success">注册成功</string>
+    <string name="reset_password_success">重置密码成功</string>
+    <string name="the_mobile_has_not_registered">该账号还未注册</string>
+    <string name="prompt_mobile">请输入您的手机号</string>
+    <string name="prompt_password">请输入您的密码</string>
+    <string name="prompt_new_password">请输入新密码</string>
+    <string name="prompt_password_again">请再次输入密码</string>
+    <string name="prompt_sms">请输入验证码</string>
+    <string name="error_mobile_required">请输入您的手机号</string>
+    <string name="error_invalid_mobile">您输入的手机号码有误</string>
+    <string name="error_password_required">请输入您的密码</string>
+    <string name="error_invalid_password">您输入的密码太短</string>
+    <string name="error_invalid_password_not_equal">您两次输入的密码不一致</string>
+    <string name="error_incorrect_password">请输入正确的密码</string>
+    <string name="my_love_car">我的爱车</string>
+    <string name="car_manage">车辆管理</string>
+    <string name="bill_statistic">账单统计</string>
+    <string name="delete_alert">是否删除</string>
+
+    <string name="please_input_fee">请输入消费金额</string>
+    <string name="please_input_price">请输入油价</string>
+    <string name="network_error">请检查网络</string>
+    <string name="tip_empty">暂无相关数据</string>
+
+    <string name="goto_setting">去设置</string>
+    <string name="i_known">我知道了</string>
+    <string name="permission_open">开启权限</string>
+    <string name="permission_open_storage_description">如果你拒绝使用存储权限,将会导致无法使用现有功能.请在[设置]>[权限]中打开</string>
+    <string name="permission_open_phone_state_description">如果你拒绝使用位置信息权限,将会导致无法提供更好的体验.请在[设置]>[权限]中打开</string>
+
+    <string name="personal_page">个人中心 </string>
+    <string name="login_account">账号 </string>
+    <string name="nickname">昵称 </string>
+    <string name="mobile">手机 </string>
+    <string name="setting_sex">性别</string>
+    <string name="setting_age">年龄</string>
+    <string name="setting_work">职业</string>
+    <string name="setting_default">未设置</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="feed_back">反馈意见 </string>
+    <string name="login_out">退出</string>
+    <string name="save_failed">修改个人信息失败</string>
+    <string name="contacts_method">联系方式 </string>
+    <string name="contacts_method_hint">选填，便于我们联系您 </string>
+    <string name="submit">提交 </string>
+    <string name="submit_success">提交成功</string>
+    <string name="submit_fail">提交失败</string>
+    <string name="submit_feedback_required">请输入您的反馈意见</string>
+
+    <string name="service_car_query">车辆信息大全</string>
+    <string name="service_car_limit">车辆尾号限行</string>
+    <string name="service_car_vin">车辆VIN查询</string>
+    <string name="service_car_fine">违章查询</string>
+    <string name="service_car_score">驾照扣分查询</string>
+    <string name="service_oil_price">今日油价查询</string>
+    <string name="service_query">查询</string>
+
+    <string name="error_vin_required">请输入VIN码</string>
+    <string name="error_vin_error">您输入的VIN码有误</string>
+    <string name="select_city">请选择城市</string>
+    <string name="select_date">请选择日期</string>
+    <string name="car_num_required">请输入车牌号</string>
+    <string name="initializing">正在初始化，请稍等</string>
+    <string name="license_id_required">请输入档案编号</string>
+    <string name="license_num_required">请输入驾驶证号</string>
+    <string name="license_score_info">驾驶证扣分</string>
+    <string name="violation_total_num">违章总条数</string>
+    <string name="violation_untreated_num_tag">未处理违章条数</string>
+    <string name="violation_untreated_fine">未处理违章总罚款</string>
+    <string name="violation_untreated_score">未处理违章总扣分</string>
+    <string name="violation_untreated_num">条未处理</string>
+
+    <string name="aliyun_market">阿里云市场</string>
+    <string name="aliyun_market_description">车辆、交通信息查询</string>
+    <string name="pay_error_need_login">您还没有登录!</string>
+    <string name="pay_error_money_not_enough">对不起，您的余额不足!</string>
+    <string name="pay_title">请选择充值方式</string>
+    <string name="pay_message">1、该服务属于第三方付费业务；\n
+2、使用付费业务前，请先充值；\n
+3、支持最小充值金额为1元。</string>
+</resources>

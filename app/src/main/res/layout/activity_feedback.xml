@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/window_background">
+        <include
+            layout="@layout/layout_title_bar"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/et_input"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="@dimen/space_middle"
+                android:layout_marginRight="@dimen/space_middle"
+                android:layout_marginTop="@dimen/space_normal"
+                android:layout_marginBottom="@dimen/space_normal"
+                android:gravity="top|left"
+                android:hint="@string/feed_back"
+                android:background="@null"
+                android:maxLength="200"/>
+
+            <TextView
+                android:id="@+id/tv_input_num"
+                android:layout_below="@id/et_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textSize="@dimen/h11"
+                android:layout_margin="@dimen/space_middle"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/SettingColumn"
+            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginBottom="@dimen/space_large">
+            <TextView
+                style="@style/SettingName"
+                android:text="@string/contacts_method"/>
+            <EditText
+                android:id="@+id/et_contact_method"
+                style="@style/SettingValue"
+                android:hint="@string/contacts_method_hint"
+                android:background="@null"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/space_large"
+            android:layout_marginLeft="@dimen/space_large"
+            android:layout_marginRight="@dimen/space_large"
+            android:background="@drawable/btn_blue_selector"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/h18" />
+    </LinearLayout>
+
+</ScrollView>
+</layout>

@@ -1,0 +1,36 @@
+<resources>
+    <!--框架-->
+    <dimen name="space_smaller">3dp</dimen>
+    <dimen name="space_mini">5dp</dimen>
+    <dimen name="space_normal">8dp</dimen>
+    <dimen name="space_middle">12dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+    <dimen name="space_xlarge">24dp</dimen>
+    <dimen name="space_xxlarge">32dp</dimen>
+    <dimen name="space_xxxlarge">36dp</dimen>
+    <dimen name="space_xxxxlarge">56dp</dimen>
+    <dimen name="toolbar_size">48dp</dimen>
+    <dimen name="footbar_size">50dp</dimen>
+
+    <!--字体大小-->
+    <dimen name="h30">30sp</dimen>
+    <dimen name="h18">18sp</dimen>
+    <dimen name="h16">16sp</dimen>
+    <dimen name="h15">15sp</dimen>
+    <dimen name="h14">14sp</dimen>
+    <dimen name="h13">13sp</dimen>
+    <dimen name="h12">12sp</dimen>
+    <dimen name="h11">11sp</dimen>
+    <dimen name="h10">10sp</dimen>
+
+    <!--UI-->
+    <dimen name="btn_width">100dp</dimen>
+    <dimen name="btn_height">36dp</dimen>
+    <dimen name="size_bill_image">32dp</dimen>
+    <dimen name="avatar_final_size">40dp</dimen>
+    <dimen name="avatar_final_x">8dp</dimen>
+
+    <dimen name="text_final_size">18sp</dimen>
+    <dimen name="text_final_x">88dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

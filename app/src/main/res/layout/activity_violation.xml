@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="city"
+            type="com.sunc.car.lovecar.yun.ApiViolationModel.ApiViolationCity"/>
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/layout_title_bar"/>
+
+    <Button
+        android:id="@+id/btn_city"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginLeft="@dimen/space_large"
+        android:layout_marginRight="@dimen/space_large"
+        android:background="@drawable/btn_blue_selector"
+        android:gravity="center"
+        android:text="@string/select_city"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h18" />
+
+    <EditText
+        android:id="@+id/et_num"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/space_large"
+        android:padding="@dimen/space_mini"
+        android:background="@drawable/bg_frame_gray"
+        android:hint="@string/car_num_required"
+        android:visibility="@{city != null?View.VISIBLE:View.GONE}"/>
+    <EditText
+        android:id="@+id/et_vin"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/space_large"
+        android:padding="@dimen/space_mini"
+        android:background="@drawable/bg_frame_gray"
+        android:hint="@{city.vinDes}"
+        android:visibility="@{city != null?View.VISIBLE:View.GONE}"/>
+
+    <EditText
+        android:id="@+id/et_engine"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:layout_margin="@dimen/space_large"
+        android:padding="@dimen/space_mini"
+        android:background="@drawable/bg_frame_gray"
+        android:hint="@{city.engineDes}"
+        android:visibility="@{city != null?View.VISIBLE:View.GONE}"/>
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginLeft="@dimen/space_large"
+        android:layout_marginRight="@dimen/space_large"
+        android:background="@drawable/btn_blue_selector"
+        android:gravity="center"
+        android:text="@string/service_query"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h18"
+        android:visibility="@{city != null?View.VISIBLE:View.GONE}"/>
+
+</LinearLayout>
+</layout>

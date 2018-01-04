@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.sunc.car.lovecar.R" />
+        <variable
+            name="item"
+            type="com.sunc.car.lovecar.my.ServiceItem"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    app:layout_constraintDimensionRatio="1:1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_margin="@dimen/space_smaller"
+            android:tint="@color/main_color_normal"
+            app:load_asset="@{item.icon}" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.name}"
+            android:textSize="@dimen/h14"
+            android:textColor="@color/textColorPrimary"
+            android:gravity="center"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+</layout>

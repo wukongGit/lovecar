@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.sunc.car.lovecar.yun.ApiCityModel"/>
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        layout="@layout/layout_title_bar"/>
+
+    <Button
+        android:id="@+id/btn_city"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginLeft="@dimen/space_large"
+        android:layout_marginRight="@dimen/space_large"
+        android:background="@drawable/btn_blue_selector"
+        android:gravity="center"
+        android:text="@string/select_city"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h18" />
+
+    <Button
+        android:id="@+id/btn_date"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginLeft="@dimen/space_large"
+        android:layout_marginRight="@dimen/space_large"
+        android:background="@drawable/btn_blue_selector"
+        android:gravity="center"
+        android:text="@string/select_date"
+        android:textColor="@color/white"
+        android:textSize="@dimen/h18" />
+
+    <ScrollView
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginLeft="@dimen/space_large"
+                android:layout_marginRight="@dimen/space_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/h18"
+                android:text="@{item.getTimeDes()}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginLeft="@dimen/space_large"
+                android:layout_marginRight="@dimen/space_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/h18"
+                android:text="@{item.summary}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginLeft="@dimen/space_large"
+                android:layout_marginRight="@dimen/space_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/h18"
+                android:text="@{item.getAreaDes()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginLeft="@dimen/space_large"
+                android:layout_marginRight="@dimen/space_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/h18"
+                android:text="@{item.getNumberruleDes()}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_large"
+                android:layout_marginLeft="@dimen/space_large"
+                android:layout_marginRight="@dimen/space_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/h18"
+                android:text="@{item.getNumberDes()}"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+</layout>

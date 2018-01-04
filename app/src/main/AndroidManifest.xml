@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sunc.car.lovecar">
+
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入缓存定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- AdView SDK mandatory or important permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.amap.api.navi.AmapRouteActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".map.SearchActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.RegisterActivity" />
+        <activity android:name=".login.ResetPasswordActivity" />
+        <activity android:name=".login.CarListActivity" />
+        <activity android:name=".login.GuideActivity" />
+        <activity android:name=".bill.RecordActivity" />
+        <activity android:name=".my.HomeActivity" />
+        <activity android:name=".my.UserEditActivity" />
+        <activity android:name=".login.CarEditActivity" />
+        <activity android:name=".my.FeedbackActivity" />
+        <activity android:name=".third.CarQueryActivity" />
+        <activity android:name=".third.CarContainActivity" />
+        <activity android:name=".third.CarDetailActivity" />
+        <activity android:name=".third.VehicleLimitActivity" />
+        <activity android:name=".third.VinSearchActivity" />
+        <activity android:name=".third.CarViolationActivity" />
+        <activity android:name=".third.OilPriceActivity" />
+        <activity android:name=".third.LicenseActivity" />
+        <activity android:name=".third.ViolationDetailActivity" />
+        <activity android:name=".bill.EditWayActivity" />
+        <activity android:name="cn.bmob.pay.v3.act.PayAct" />
+
+        <service android:name="com.amap.api.location.APSService" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e70256e2f66fa198214467407f74bf35" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a406eb08f4a9d0ce00000a3" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <activity android:name=".map.NaviActivity" />
+
+        <!-- Must declare it for Adivew SDK -->
+        <activity
+            android:name="com.kuaiyou.video.vast.activity.VASTAdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape" />
+
+        <service android:name="com.kyview.DownloadService" />
+
+        <activity android:name="com.kyview.AdviewWebView" />
+        <activity android:name="com.kyview.AdActivity" />
+        <activity android:name=".bill.PieActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="String"/>
+    </data>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_filter"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/space_mini"
+        android:textSize="@dimen/h12"
+        android:textColor="@color/textColorPrimary"
+        android:text="@{item}"
+        android:background="@drawable/bg_city_selector">
+    </TextView>
+</layout>

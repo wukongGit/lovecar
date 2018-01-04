@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/near"
+        android:icon="@mipmap/ic_map"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/near" />
+
+    <item
+
+        android:id="@+id/consumption"
+        android:icon="@mipmap/ic_oil"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/consumption"/>
+    <item
+
+        android:id="@+id/bill"
+        android:icon="@mipmap/ic_money"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/bill"
+        />
+    <item
+
+        android:id="@+id/service"
+        android:icon="@mipmap/ic_cloud"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="@string/service"
+        />
+</menu>

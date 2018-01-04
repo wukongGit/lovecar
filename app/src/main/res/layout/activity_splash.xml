@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spreadlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!-- 广点通开屏跳过按钮 -->
+    <!-- <RelativeLayout
+        android:id="@+id/skip_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/background_circle"
+            android:gravity="center"
+            android:text="点击跳过"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"/>
+    </RelativeLayout> -->
+</RelativeLayout>
