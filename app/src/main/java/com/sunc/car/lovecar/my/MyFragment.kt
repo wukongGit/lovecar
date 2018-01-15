@@ -4,30 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import c.b.BP
-import c.b.PListener
-import cn.bmob.v3.BmobQuery
-import cn.bmob.v3.exception.BmobException
-import cn.bmob.v3.listener.FindListener
+import android.widget.Toast
+import com.base.bj.paysdk.domain.TrPayResult
+import com.base.bj.paysdk.utils.TrPay
 import com.kyview.interfaces.AdViewBannerListener
 import com.kyview.manager.AdViewBannerManager
 import com.squareup.otto.Subscribe
 import com.sunc.base.BaseBingingFragment
 import com.sunc.car.lovecar.App
 import com.sunc.car.lovecar.R
-import com.sunc.car.lovecar.bmob.Bill
-import com.sunc.car.lovecar.bmob.Config
 import com.sunc.car.lovecar.databinding.FragmentMyBinding
 import com.sunc.car.lovecar.eventbus.NotifyType
 import com.sunc.car.lovecar.login.LoginActivity
 import com.sunc.car.lovecar.third.*
-import com.sunc.car.lovecar.toast
 import com.sunc.utils.AndroidUtils
 import com.sunc.view.ItemDecoration
+import java.util.*
 
 /**
  * Created by Administrator on 2017/11/14.
@@ -75,7 +70,7 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
             mList.add(ServiceItem(getString(R.string.service_oil_price), "ic_map_4s"))
             mAdapter = ServiceAdapter(mList)
             mAdapter.setOnItemClickListener { pos ->
-                payAlert(getString(R.string.aliyun_market), getString(R.string.aliyun_market_description), pos)
+                payAlert(pos)
             }
             rcServices.layoutManager = GridLayoutManager(context, 3)
             rcServices.addItemDecoration(ItemDecoration(context))
@@ -135,57 +130,52 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
 
     }
 
-    private fun payAlert(title: String, description: String, pos: Int) {
-        val channel = AndroidUtils.getAppMetaData(activity, "UMENG_CHANNEL")
-        val query = BmobQuery<Config>()
-        query.addWhereEqualTo("appStore", channel)
-        query.findObjects(object : FindListener<Config>() {
-            override fun done(p0: MutableList<Config>?, p1: BmobException?) {
-                var free = if (p1 != null || p0 == null || p0.size == 0) {
-                    true
-                } else {
-                    p0[0].serviceFree
+    private fun payAlert(pos: Int) {
+        AlertDialog.Builder(activity,
+                android.support.v7.appcompat.R.style.Theme_AppCompat_Light_Dialog_Alert)
+                .setTitle(getString(R.string.pay_title))
+                .setMessage(getString(R.string.pay_message))
+                .setPositiveButton(getString(R.string.ok)) { dialogInterface, _ ->
+                    dialogInterface.dismiss()
+                    pay(mList[pos].name, 10, pos)
                 }
-                if (free) {
-                    startService(pos)
-                    return
+                .setNegativeButton(getString(R.string.cancel)) { dialogInterface, _ ->
+                    dialogInterface.dismiss()
                 }
-                val view = LayoutInflater.from(activity).inflate(R.layout.layout_pay_select, null)
-                val dialog = AlertDialog.Builder(activity)
-                        .setTitle(getString(R.string.pay_title))
-                        .setMessage(getString(R.string.pay_message))
-                        .setView(view)
-
-                view.findViewById<View>(R.id.iv_alipay).setOnClickListener {
-                    pay(title, description, 1.0, BP.PayType_Alipay, pos)
-                }
-                view.findViewById<View>(R.id.iv_wechat).setOnClickListener {
-                    pay(title, description, 1.0, BP.PayType_Wechat, pos)
-                }
-                dialog.show()
-            }
-        })
+                .setCancelable(false)
+                .create()
+                .show()
     }
 
-    private fun pay(title: String, description: String, money: Double, type: Int, pos: Int) {
-        BP.pay(title, description, money, type, object : PListener {
-                        override fun orderId(p0: String?) {
-                            Log.d("pay==", "orderId:" + p0)
-                            if (p0 != null) {
-                            }
-                        }
-
-                        override fun fail(p0: Int, p1: String?) {
-                            Log.d("pay==", "fail:$p0, p1:$p1")
-                            activity.toast("支付通道暂未开通，尽请期待！")
-                            //fail:10012, p1:应用支付截图未审核通过, 请在账号管理->实名认证中提交认证
-                        }
-
-                        override fun succeed() {
-                            Log.d("pay==", "succeed:")
-                            startService(pos)
-                        }
-                    })
+    private fun pay(tradename: String, amount: Long, pos: Int) {
+        val userid = "suncheng911@163.com"//商户系统用户ID(如：trpay@52yszd.com，商户系统内唯一)
+        val outtradeno = pos.toString() + System.currentTimeMillis() + AndroidUtils.getSerialNumber()//商户系统订单号(商户系统内唯一)
+        val backparams = "name=wukong&age=31"//商户系统回调参数
+        val notifyurl = "http://www.wukongapp.icoc.bz"//商户系统回调地址
+        /**
+         * 发起支付调用
+         */
+        TrPay.getInstance(activity).callPay(tradename,outtradeno, amount, backparams,notifyurl,userid) { p0, p1, p2, p3, p4, p5, p6 ->
+            /**
+             * 支付完成回调
+             * @param context      上下文
+             * @param outtradeno   商户系统订单号
+             * @param resultCode   支付状态(RESULT_CODE_SUCC：支付成功、RESULT_CODE_FAIL：支付失败)
+             * @param resultString 支付结果
+             * @param payType      支付类型（1：支付宝 2：微信）
+             * @param amount       支付金额
+             * @param tradename    商品名称
+             */
+            if (p2 == TrPayResult.RESULT_CODE_SUCC.id) {//1：支付成功回调
+                TrPay.getInstance(context).closePayView()//关闭快捷支付页面
+                Toast.makeText(activity, p3, Toast.LENGTH_LONG).show()
+                //支付成功逻辑处理
+                startService(pos)
+            } else if (p2 == TrPayResult.RESULT_CODE_FAIL.id) {//2：支付失败回调
+                Toast.makeText(activity, p3, Toast.LENGTH_LONG).show()
+                //支付失败逻辑处理
+            }
+        }
     }
 
     private fun startService(pos: Int) {

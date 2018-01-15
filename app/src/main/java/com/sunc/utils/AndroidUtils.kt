@@ -85,6 +85,24 @@ object AndroidUtils {
     }
 
     /**
+     * 序列号
+     *
+     * @return
+     */
+    fun getSerialNumber(): String? {
+        var serial: String? = null
+        try {
+            val c = Class.forName("android.os.SystemProperties")
+            val get = c.getMethod("get", String::class.java)
+            serial = get.invoke(c, "ro.serialno") as String
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return serial
+    }
+
+    /**
      * 获取当前手机系统语言。
      *
      * @return 返回当前系统语言。例如：当前设置的是“中文-中国”，则返回“zh-CN”

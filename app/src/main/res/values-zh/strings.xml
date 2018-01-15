@@ -152,6 +152,7 @@
     <string name="pay_error_money_not_enough">对不起，您的余额不足!</string>
     <string name="pay_title">请选择充值方式</string>
     <string name="pay_message">1、该服务属于第三方付费业务；\n
-2、使用付费业务前，请先充值；\n
-3、支持最小充值金额为1元。</string>
+2、使用付费业务前，请先付费；\n
+3、该付费为一次性费用，请谨慎使用。
+    </string>
 </resources>

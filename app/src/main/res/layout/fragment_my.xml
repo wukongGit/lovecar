@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout >
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/footbar_size">
+    android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/ll_head"
         android:layout_width="match_parent"
@@ -29,18 +29,16 @@
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rc_services"
-        android:layout_below="@id/ll_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
     </android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:id="@+id/ll_ad"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/footbar_size"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:background="@color/window_background" />
-</RelativeLayout>
+</LinearLayout>
 </layout>

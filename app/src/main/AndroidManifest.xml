@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sunc.car.lovecar">
 
     <!-- 用于进行网络定位 -->
@@ -40,13 +41,28 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <!-- Adsmar移动、讯飞必须 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+
+    <!-- -易传媒 、讯飞所需的权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <!-- Ader、万普、指点、力美、讯飞所需权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- TrPay -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:replace="theme">
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,7 +97,7 @@
         <activity android:name=".third.LicenseActivity" />
         <activity android:name=".third.ViolationDetailActivity" />
         <activity android:name=".bill.EditWayActivity" />
-        <activity android:name="cn.bmob.pay.v3.act.PayAct" />
+        <activity android:name=".bill.PieActivity" />
 
         <service android:name="com.amap.api.location.APSService" />
 
@@ -108,7 +124,36 @@
 
         <activity android:name="com.kyview.AdviewWebView" />
         <activity android:name="com.kyview.AdActivity" />
-        <activity android:name=".bill.PieActivity"></activity>
+
+        <!--AdView SDK for 讯飞    -->
+        <service
+            android:name="com.iflytek.voiceads.update.DownloadService"/>
+
+        <activity
+            android:name="com.iflytek.voiceads.request.IFLYBrowser"
+            android:screenOrientation="portrait" />
+
+        <!-- AdView SDK for Oupeng-->
+        <activity
+            android:name="com.oupeng.ad.sdk.video.OupengPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.oupeng.ad.sdk.browser.OupengBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.oupeng.ad.sdk.interstitial.adapter.html.OupengHtmlInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.oupeng.ad.sdk.interstitial.adapter.image.OupengImageInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.oupeng.ad.sdk.splash.adapter.OupengImageSplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>

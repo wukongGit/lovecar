@@ -57,18 +57,6 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
         mFragments.add(OilFragment())
         mFragments.add(BillFragment())
         mFragments.add(MyFragment())
-        Log.d("chanel==", "000" +AndroidUtils.getAppMetaData(this, "UMENG_CHANNEL"))
-        val config = Config("" + AndroidUtils.getAppMetaData(this, "UMENG_CHANNEL"), true)
-        config.save(object : SaveListener<String>() {
-            override fun done(s: String, e: BmobException?) {
-                if (e == null) {
-                    toast(getString(R.string.submit_success))
-                    //finish()
-                } else {
-                    toast(getString(R.string.submit_fail))
-                }
-            }
-        })
     }
 
     override fun onBackPressed() {

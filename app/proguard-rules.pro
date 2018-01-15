@@ -37,9 +37,9 @@
 
 #bmob
 #-libraryjars libs/BmobPay_v3.2.3_171113.jar
--keepclasseswithmembers class c.b.** { *; }
--keep interface c.b.PListener{ *; }
--keep interface c.b.QListener{ *; }
+#-keepclasseswithmembers class c.b.** { *; }
+#-keep interface c.b.PListener{ *; }
+#-keep interface c.b.QListener{ *; }
 
 -ignorewarnings
 

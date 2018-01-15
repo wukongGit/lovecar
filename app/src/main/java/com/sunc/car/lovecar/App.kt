@@ -2,11 +2,12 @@ package com.sunc.car.lovecar
 
 import android.graphics.Color
 import android.support.multidex.MultiDexApplication
-import c.b.BP
 import cn.bmob.v3.Bmob
 import cn.bmob.v3.BmobUser
+import com.base.bj.paysdk.utils.TrPay
 import com.kyview.InitConfiguration
 import com.kyview.manager.AdViewBannerManager
+import com.kyview.manager.AdViewInstlManager
 import com.kyview.manager.AdViewNativeManager
 import com.kyview.manager.AdViewSpreadManager
 import com.sunc.car.lovecar.bmob.Car
@@ -15,6 +16,7 @@ import com.sunc.di.component.ApiComponent
 import com.sunc.di.component.DaggerApiComponent
 import com.sunc.di.module.AppModule
 import com.sunc.utils.AndroidUtils
+import com.sunc.utils.Constants
 import com.sunc.utils.DBKeys
 import com.sunc.utils.DBUtils
 import javax.inject.Inject
@@ -76,8 +78,8 @@ class App : MultiDexApplication() {
         super.onCreate()
         DaggerApiComponent.builder().appModule(AppModule(this)).build().inject(this)
         if (applicationInfo.packageName == AndroidUtils.getCurrentProcessName()) {
-            Bmob.initialize(this, "80ed1d4595fa51b7e00d5dab0dfb8750")
-            BP.init("80ed1d4595fa51b7e00d5dab0dfb8750")
+            Bmob.initialize(this, Constants.BMOB_APPKEY)
+            TrPay.getInstance(this).initPaySdk(Constants.TRPAY_APPKEY,AndroidUtils.getAppMetaData(this, "UMENG_CHANNEL"))
             initAd()
         }
     }
@@ -87,10 +89,12 @@ class App : MultiDexApplication() {
         initConfiguration = InitConfiguration.Builder(
                 this).setUpdateMode(InitConfiguration.UpdateMode.EVERYTIME)
                 .setBannerCloseble(InitConfiguration.BannerSwitcher.CANCLOSED)
-                .setRunMode(InitConfiguration.RunMode.TEST)
+//                .setRunMode(InitConfiguration.RunMode.TEST)
                 .build()
         //横幅 配置
         AdViewBannerManager.getInstance(this).init(initConfiguration, keySet)
+        //插屏 配置
+        AdViewInstlManager.getInstance(this).init(initConfiguration, keySet)
         //原生 配置
         //AdViewNativeManager.getInstance(this).init(initConfiguration, keySet)
         //开屏 配置

@@ -82,12 +82,12 @@ class SplashActivity : AppCompatActivity(), AdViewSpreadListener {
     /**
      * onRestart()如果只使用单独竞价开屏，必须注释掉否则引起回调问题。如果和第三方一块来使用，必须打开否则有可能引起跳转问题。
      */
-//    override fun onRestart() {
-//        super.onRestart()
-//        // waitingOnRestart 需要自己控制
-//        //waitingOnRestart = true;
-//        jumpWhenCanClick()
-//    }
+    override fun onRestart() {
+        super.onRestart()
+        // waitingOnRestart 需要自己控制
+        //waitingOnRestart = true;
+        jumpWhenCanClick()
+    }
 
     var waitingOnRestart = false
 

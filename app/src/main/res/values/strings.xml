@@ -152,6 +152,6 @@
     <string name="pay_error_money_not_enough">Sorry, your balance is not enough!</string>
     <string name="pay_title">Choose the way to recharge</string>
     <string name="pay_message">1、The service is a third party paid service;\n
-2、Before using the paid business, please recharge first;\n
-3、The minimum amount of support is 1 yuan.</string>
+2、Before using the paid business, please pay first;\n
+3、It is a one-time charge. Please use it carefully.</string>
 </resources>

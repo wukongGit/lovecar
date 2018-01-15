@@ -8,12 +8,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import com.amap.api.location.AMapLocation
 import com.amap.api.services.core.PoiItem
 import com.amap.api.services.poisearch.PoiResult
-import com.kyview.interfaces.AdViewBannerListener
-import com.kyview.manager.AdViewBannerManager
+import com.kyview.interfaces.AdViewInstlListener
+import com.kyview.manager.AdViewInstlManager
 import com.sunc.base.BaseBindingActivity
 import com.sunc.car.lovecar.App
 import com.sunc.car.lovecar.R
@@ -28,34 +27,41 @@ import com.sunc.utils.DBKeys
 import com.sunc.utils.DBUtils
 import com.sunc.utils.DimenUtils
 import com.sunc.view.SizeDivider
+import rx.Observable
+import rx.android.schedulers.AndroidSchedulers
 import java.util.ArrayList
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
  * Created by Administrator on 2017/11/27.
  */
-class SearchActivity: BaseBindingActivity<ActivitySearchBinding>(), MapContract.View, AdViewBannerListener {
-    //val TAG = "ADVIEW_SearchActivity"
+class SearchActivity: BaseBindingActivity<ActivitySearchBinding>(), MapContract.View, AdViewInstlListener {
+    val TAG = "ADVIEW_SearchActivity"
+    override fun onAdDismiss(p0: String?) {
+        Log.d(TAG, "onAdDismiss:" + p0)
+    }
+
+    override fun onAdRecieved(p0: String?) {
+        Log.d(TAG, "onAdRecieved:" + p0)
+        Observable.timer(500, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread()).map {
+            if (!mAdHasShow) {
+                AdViewInstlManager.getInstance(this).showAd(this, App.instance.key1)
+            }
+        }.subscribe()
+    }
+
     override fun onAdFailed(p0: String?) {
-        //Log.d(TAG, "onAdFailed==" + p0)
+        Log.d(TAG, "onAdFailed:" + p0)
     }
 
     override fun onAdDisplay(p0: String?) {
-        //Log.d(TAG, "onAdDisplay==" + p0)
+        Log.d(TAG, "onAdDisplay:" + p0)
+        mAdHasShow = true
     }
 
     override fun onAdClick(p0: String?) {
-        //Log.d(TAG, "onAdClick==" + p0)
-    }
-
-    override fun onAdReady(p0: String?) {
-        //Log.d(TAG, "onAdReady==" + p0)
-    }
-
-    override fun onAdClose(p0: String?) {
-        with(mBinding) {
-            llAd?.removeView(llAd.findViewWithTag<View>(p0))
-        }
+        Log.d(TAG, "onAdClick:" + p0)
     }
 
     private var mList = ArrayList<PoiItem>()
@@ -65,6 +71,7 @@ class SearchActivity: BaseBindingActivity<ActivitySearchBinding>(), MapContract.
     @Inject lateinit var mPresenter: MapPresenter
     private var mPage = 1
     private var mKeywords = ""
+    private var mAdHasShow = false
 
     override fun onLocationChanged(results: AMapLocation) {
     }
@@ -173,19 +180,7 @@ class SearchActivity: BaseBindingActivity<ActivitySearchBinding>(), MapContract.
     }
 
     private fun initAd(key: String) {
-        with(mBinding) {
-            if (llAd == null)
-                return
-            val view = AdViewBannerManager.getInstance(this@SearchActivity).getAdViewLayout(this@SearchActivity, key)
-            if (null != view && null != view.parent) {
-                val parent = view.parent as ViewGroup
-                parent.removeAllViews()
-            }
-            AdViewBannerManager.getInstance(this@SearchActivity).requestAd(this@SearchActivity, key, this@SearchActivity)
-            view!!.tag = key
-            llAd.addView(view)
-            llAd.invalidate()
-        }
+        AdViewInstlManager.getInstance(this).requestAd(this, key, this)
     }
 
     override fun onDestroy() {
