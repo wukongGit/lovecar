@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import cn.bmob.v3.BmobQuery
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.FindListener
 import com.base.bj.paysdk.domain.TrPayResult
 import com.base.bj.paysdk.utils.TrPay
 import com.kyview.interfaces.AdViewBannerListener
@@ -16,10 +19,12 @@ import com.squareup.otto.Subscribe
 import com.sunc.base.BaseBingingFragment
 import com.sunc.car.lovecar.App
 import com.sunc.car.lovecar.R
+import com.sunc.car.lovecar.bmob.Config
 import com.sunc.car.lovecar.databinding.FragmentMyBinding
 import com.sunc.car.lovecar.eventbus.NotifyType
 import com.sunc.car.lovecar.login.LoginActivity
 import com.sunc.car.lovecar.third.*
+import com.sunc.car.lovecar.toast
 import com.sunc.utils.AndroidUtils
 import com.sunc.view.ItemDecoration
 import java.util.*
@@ -53,6 +58,7 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
 
     private var mList = ArrayList<ServiceItem>()
     private lateinit var mAdapter: ServiceAdapter
+    private var mFree = true
 
     override fun createDataBinding(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): FragmentMyBinding {
         return FragmentMyBinding.inflate(inflater, container, false)
@@ -60,6 +66,7 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
 
     override fun initView(savedInstanceState: Bundle?) {
         with(mBinding) {
+            initFree()
             initHeadInfo()
             mList.clear()
             mList.add(ServiceItem(getString(R.string.service_car_query), "ic_map_4s"))
@@ -70,7 +77,14 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
             mList.add(ServiceItem(getString(R.string.service_oil_price), "ic_map_4s"))
             mAdapter = ServiceAdapter(mList)
             mAdapter.setOnItemClickListener { pos ->
-                payAlert(pos)
+                if (AndroidUtils.isFastDoubleClick()) {
+                    return@setOnItemClickListener
+                }
+                if (mFree) {
+                    startService(pos)
+                } else {
+                    payAlert(pos)
+                }
             }
             rcServices.layoutManager = GridLayoutManager(context, 3)
             rcServices.addItemDecoration(ItemDecoration(context))
@@ -95,6 +109,21 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
                 }
             }
         }
+    }
+
+    private fun initFree() {
+        val channel = AndroidUtils.getAppMetaData(activity, "UMENG_CHANNEL")
+        val query = BmobQuery<Config>()
+        query.addWhereEqualTo("appStore", channel)
+        query.findObjects(object : FindListener<Config>() {
+            override fun done(p0: MutableList<Config>?, p1: BmobException?) {
+                mFree = if (p1 == null && p0 != null && p0.size > 0) {
+                    p0[0].serviceFree
+                } else {
+                    true
+                }
+            }
+        })
     }
 
     private fun initAd(key: String) {
@@ -149,7 +178,7 @@ class MyFragment : BaseBingingFragment<FragmentMyBinding>(), AdViewBannerListene
 
     private fun pay(tradename: String, amount: Long, pos: Int) {
         val userid = "suncheng911@163.com"//商户系统用户ID(如：trpay@52yszd.com，商户系统内唯一)
-        val outtradeno = pos.toString() + System.currentTimeMillis() + AndroidUtils.getSerialNumber()//商户系统订单号(商户系统内唯一)
+        val outtradeno = pos.toString() + UUID.randomUUID()//商户系统订单号(商户系统内唯一)
         val backparams = "name=wukong&age=31"//商户系统回调参数
         val notifyurl = "http://www.wukongapp.icoc.bz"//商户系统回调地址
         /**

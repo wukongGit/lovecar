@@ -151,6 +151,9 @@ class RecordActivity : BaseBindingActivity<ActivityRecordBinding>(), RecordContr
                 finish()
             }
             tvMenu.setOnClickListener {
+                if (AndroidUtils.isFastDoubleClick()) {
+                    return@setOnClickListener
+                }
                 if (!AndroidUtils.isNetworkConnected(this@RecordActivity)) {
                     toast(getString(R.string.network_error))
                     return@setOnClickListener
@@ -172,7 +175,6 @@ class RecordActivity : BaseBindingActivity<ActivityRecordBinding>(), RecordContr
                 }
                 val month = tY.toString().plus(tMS)
                 mPresenter.addBill(Bill(App.instance.getCar()!!, month, type, icon, fee, note))
-
             }
             etFee.addTextChangedListener(mFeeWatcher)
             etPrice.addTextChangedListener(mPriceWatcher)
